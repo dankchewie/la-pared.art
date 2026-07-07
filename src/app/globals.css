@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #14120e;
+  --surface: #1c1915;
+  --text: #ece4d4;
+  --text-dim: #a69c89;
+  --accent: #e2793e;
+  --accent-2: #e5b93e;
+  --accent-3: #a67cb5;
+  --border: #38332a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-border: var(--border);
+  --font-display: var(--font-fraunces);
+  --font-utility: var(--font-space-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-utility), monospace;
+}
+
+.masonry {
+  column-count: 2;
+  column-gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 0.75rem;
+}
+
+.museum-label .meta {
+  font-family: var(--font-utility), monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--accent);
+}

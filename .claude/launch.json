@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": [
+        "/d",
+        "/c",
+        "set PATH=C:\\Users\\kaiae\\AppData\\Local\\nodejs\\node-v22.18.0-win-x64;%PATH% & C:\\Users\\kaiae\\AppData\\Local\\nodejs\\node-v22.18.0-win-x64\\npm.cmd run dev"
+      ],
+      "port": 3000
+    }
+  ]
+}
