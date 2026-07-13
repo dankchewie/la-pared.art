@@ -9,6 +9,7 @@ export default function SignOutButton() {
   async function handleSignOut() {
     const supabase = createClient();
     await supabase.auth.signOut();
+    document.cookie = "remember-me=; path=/; max-age=0";
     router.push("/login");
     router.refresh();
   }

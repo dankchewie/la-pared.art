@@ -4,9 +4,23 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
+const REMEMBER_ME_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
+
+function setRememberMeCookie(remember: boolean) {
+  const parts = ["remember-me=1", "path=/", "SameSite=Lax"];
+  if (remember) {
+    parts.push(`max-age=${REMEMBER_ME_MAX_AGE}`);
+  }
+  if (window.location.protocol === "https:") {
+    parts.push("Secure");
+  }
+  document.cookie = parts.join("; ");
+}
+
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -29,6 +43,8 @@ export default function LoginPage() {
       setLoading(false);
       return;
     }
+
+    setRememberMeCookie(rememberMe);
 
     router.push("/dashboard");
     router.refresh();
@@ -83,6 +99,16 @@ export default function LoginPage() {
           autoComplete="current-password"
           className="bg-surface border border-border px-3 py-2 text-text placeholder:text-text-dim font-utility text-sm"
         />
+
+        <label className="flex items-center gap-2 text-text-dim font-utility text-xs uppercase tracking-wide">
+          <input
+            type="checkbox"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+            className="accent-accent"
+          />
+          Remember me for 30 days
+        </label>
 
         {error && <p className="text-accent-3 text-sm">{error}</p>}
         {info && <p className="text-accent text-sm">{info}</p>}

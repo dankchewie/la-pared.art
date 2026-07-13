@@ -29,10 +29,26 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
+  const remembered = request.cookies.has("remember-me");
+
+  if (
+    request.nextUrl.pathname.startsWith("/dashboard") &&
+    (!user || !remembered)
+  ) {
+    if (user && !remembered) {
+      // Supabase's own session cookie persists far longer than the 30-day
+      // "remember me" window, so an expired/absent sentinel cookie must
+      // force an explicit sign-out rather than just a redirect.
+      await supabase.auth.signOut();
+    }
+
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    return NextResponse.redirect(url);
+    const redirectResponse = NextResponse.redirect(url);
+    response.cookies.getAll().forEach((cookie) => {
+      redirectResponse.cookies.set(cookie);
+    });
+    return redirectResponse;
   }
 
   return response;
