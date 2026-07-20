@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import Wall from "@/components/Wall";
+import PublicHeader from "@/components/PublicHeader";
+import type { ContactLink } from "@/lib/database.types";
 
 export default async function ArtistWallPage({
   params,
@@ -28,16 +30,16 @@ export default async function ArtistWallPage({
 
   return (
     <div className="flex-1 flex flex-col pb-16">
-      <header className="px-4 py-6 text-center">
-        <h1 className="font-display text-2xl font-semibold">
-          {artist.display_name}
-        </h1>
-        {artist.location && (
-          <p className="text-text-dim text-xs font-utility uppercase tracking-wide mt-1">
-            {artist.location}
-          </p>
-        )}
-      </header>
+      <PublicHeader
+        slug={artist.slug}
+        displayName={artist.display_name}
+        artistId={artist.id}
+        location={artist.location}
+        bio={artist.bio}
+        bioImageUrl={artist.bio_image_url}
+        instagramUrl={artist.instagram_url}
+        links={(artist.links as ContactLink[] | null) ?? []}
+      />
 
       <Wall artworks={artworks ?? []} editable={false} />
     </div>

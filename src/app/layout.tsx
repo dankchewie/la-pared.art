@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Fraunces, Space_Mono } from "next/font/google";
+import { Cormorant_Garamond, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${spaceMono.variable} h-full dark`}
+      className={`${cormorantGaramond.variable} ${spaceMono.variable} h-full dark`}
     >
       <body className="min-h-full flex flex-col bg-bg text-text antialiased">
         {children}

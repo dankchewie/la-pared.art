@@ -14,23 +14,35 @@ export type Database = {
     Tables: {
       artists: {
         Row: {
+          bio: string | null
+          bio_image_url: string | null
           created_at: string
           display_name: string
           id: string
+          instagram_url: string | null
+          links: Json
           location: string | null
           slug: string
         }
         Insert: {
+          bio?: string | null
+          bio_image_url?: string | null
           created_at?: string
           display_name: string
           id: string
+          instagram_url?: string | null
+          links?: Json
           location?: string | null
           slug: string
         }
         Update: {
+          bio?: string | null
+          bio_image_url?: string | null
           created_at?: string
           display_name?: string
           id?: string
+          instagram_url?: string | null
+          links?: Json
           location?: string | null
           slug?: string
         }
@@ -81,6 +93,30 @@ export type Database = {
         }
         Relationships: []
       }
+      messages: {
+        Row: {
+          artist_id: string
+          body: string
+          created_at: string
+          email: string
+          id: string
+        }
+        Insert: {
+          artist_id: string
+          body: string
+          created_at?: string
+          email: string
+          id?: string
+        }
+        Update: {
+          artist_id?: string
+          body?: string
+          created_at?: string
+          email?: string
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -103,3 +139,8 @@ export type TablesInsert<T extends keyof Database["public"]["Tables"]> =
   Database["public"]["Tables"][T]["Insert"]
 export type TablesUpdate<T extends keyof Database["public"]["Tables"]> =
   Database["public"]["Tables"][T]["Update"]
+
+export type ContactLink = {
+  label: string
+  url: string
+}

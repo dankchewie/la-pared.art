@@ -9,7 +9,8 @@
         "/c",
         "set PATH=C:\\Users\\kaiae\\AppData\\Local\\nodejs\\node-v22.18.0-win-x64;%PATH% & C:\\Users\\kaiae\\AppData\\Local\\nodejs\\node-v22.18.0-win-x64\\npm.cmd run dev"
       ],
-      "port": 3000
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }
