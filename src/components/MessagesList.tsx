@@ -38,7 +38,7 @@ export default function MessagesList({
               href={`mailto:${message.email}`}
               className="font-utility text-xs uppercase tracking-wide text-accent hover:opacity-80"
             >
-              {message.email}
+              {message.name ? `${message.name} · ${message.email}` : message.email}
             </a>
             <button
               onClick={() => handleDelete(message.id)}
@@ -48,6 +48,11 @@ export default function MessagesList({
               delete
             </button>
           </div>
+          {message.phone && (
+            <p className="text-text-dim text-xs font-utility mt-1">
+              {message.phone}
+            </p>
+          )}
           <p className="text-text text-sm mt-2 whitespace-pre-line">
             {message.body}
           </p>

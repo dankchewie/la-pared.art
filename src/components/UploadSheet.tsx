@@ -14,6 +14,9 @@ export default function UploadSheet({ userId }: { userId: string }) {
   const [size, setSize] = useState("");
   const [year, setYear] = useState("");
   const [statement, setStatement] = useState("");
+  const [price, setPrice] = useState("");
+  const [forSale, setForSale] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -27,6 +30,9 @@ export default function UploadSheet({ userId }: { userId: string }) {
     setSize("");
     setYear("");
     setStatement("");
+    setPrice("");
+    setForSale(false);
+    setIsSelected(false);
     setError(null);
   }
 
@@ -64,6 +70,9 @@ export default function UploadSheet({ userId }: { userId: string }) {
         size: size.trim() || null,
         year: year.trim() || null,
         statement: statement.trim() || null,
+        price: price.trim() || null,
+        for_sale: forSale,
+        is_selected: isSelected,
         image_url: publicUrl,
         image_width: width,
         image_height: height,
@@ -173,6 +182,29 @@ export default function UploadSheet({ userId }: { userId: string }) {
                 rows={3}
                 className="bg-surface border border-border px-3 py-2 text-text placeholder:text-text-dim font-utility text-sm resize-none"
               />
+              <input
+                type="text"
+                placeholder="Price (e.g. 600 USD)"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className="bg-surface border border-border px-3 py-2 text-text placeholder:text-text-dim font-utility text-sm"
+              />
+              <label className="flex items-center gap-2 text-text-dim font-utility text-sm">
+                <input
+                  type="checkbox"
+                  checked={forSale}
+                  onChange={(e) => setForSale(e.target.checked)}
+                />
+                For sale
+              </label>
+              <label className="flex items-center gap-2 text-text-dim font-utility text-sm">
+                <input
+                  type="checkbox"
+                  checked={isSelected}
+                  onChange={(e) => setIsSelected(e.target.checked)}
+                />
+                Selected
+              </label>
 
               {error && <p className="text-accent-3 text-sm">{error}</p>}
 
