@@ -43,6 +43,12 @@
   --link: #08f;
   --font-display: var(--font-instrument-serif);
   --font-utility: var(--font-instrument-sans);
+  /* Tailwind's `@theme inline` bakes the .font-display/.font-utility
+     utilities down to these concrete next/font variable names at build
+     time, bypassing --font-display/--font-utility above, so they must
+     be overridden directly too. */
+  --font-cormorant-garamond: var(--font-instrument-serif);
+  --font-space-mono: var(--font-instrument-sans);
 }
 
 * {
