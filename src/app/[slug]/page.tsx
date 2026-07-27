@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import ArtistHeader from "@/components/ArtistHeader";
 import ArtworkGrid from "@/components/ArtworkGrid";
-import BrandFooterBar from "@/components/BrandFooterBar";
 import type { ContactLink } from "@/lib/database.types";
 
 export default async function ArtistWallPage({
@@ -30,7 +29,7 @@ export default async function ArtistWallPage({
     .order("created_at", { ascending: false });
 
   return (
-    <div className="flex-1 flex flex-col pb-24">
+    <div className="flex-1 flex flex-col pb-8">
       <ArtistHeader
         slug={artist.slug}
         displayName={artist.display_name}
@@ -43,8 +42,6 @@ export default async function ArtistWallPage({
       />
 
       <ArtworkGrid slug={artist.slug} artworks={artworks ?? []} />
-
-      <BrandFooterBar />
     </div>
   );
 }
