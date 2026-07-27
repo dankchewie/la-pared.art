@@ -41,7 +41,11 @@ export default async function ArtistWallPage({
         links={(artist.links as ContactLink[] | null) ?? []}
       />
 
-      <ArtworkGrid slug={artist.slug} artworks={artworks ?? []} />
+      <ArtworkGrid
+        slug={artist.slug}
+        artistName={artist.display_name}
+        artworks={artworks ?? []}
+      />
     </div>
   );
 }

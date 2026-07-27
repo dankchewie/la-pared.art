@@ -59,36 +59,36 @@ export default function ArtistHeader({
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 px-4">
-        <button
-          onClick={() => setShowContact(true)}
-          className="w-full flex items-center justify-center gap-1 rounded-full bg-text border border-border px-4 py-3 text-white font-semibold"
-        >
-          <SendIcon className="size-6" />
-          Mensaje
-        </button>
-        {youtubeLink && (
-          <a
-            href={toAbsoluteUrl(youtubeLink.url)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 rounded-full bg-bg border border-border p-3 text-sm text-text"
-          >
-            <YoutubeIcon className="size-5" />
-            YouTube
-          </a>
-        )}
+      <div className="flex items-center gap-2 px-4">
         {instagramUrl && (
           <a
             href={toAbsoluteUrl(instagramUrl)}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 rounded-full bg-bg border border-border p-3 text-sm text-text"
+            className="flex-1 flex items-center justify-center gap-2 rounded-full bg-bg border border-border p-3 text-sm text-text"
           >
             <InstagramIcon className="size-5" />
             Instagram
           </a>
         )}
+        {youtubeLink && (
+          <a
+            href={toAbsoluteUrl(youtubeLink.url)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 rounded-full bg-bg border border-border p-3 text-sm text-text"
+          >
+            <YoutubeIcon className="size-5" />
+            YouTube
+          </a>
+        )}
+        <button
+          onClick={() => setShowContact(true)}
+          className="flex-1 flex items-center justify-center gap-1 rounded-full bg-text border border-border px-4 py-3 text-white font-semibold"
+        >
+          <SendIcon className="size-6" />
+          Mensaje
+        </button>
       </div>
 
       {bio && (
