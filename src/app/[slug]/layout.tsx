@@ -20,7 +20,7 @@ export default function ClientViewLayout({
 }) {
   return (
     <div
-      className={`${instrumentSans.variable} ${instrumentSerif.variable} client-view flex-1 flex flex-col bg-bg text-text [color-scheme:light]`}
+      className={`${instrumentSans.variable} ${instrumentSerif.variable} client-view flex-1 flex flex-col bg-bg text-text font-utility [color-scheme:light]`}
     >
       {children}
     </div>
