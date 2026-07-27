@@ -35,7 +35,7 @@ export default function ArtworkGrid({
               Visita la tienda
             </a>
           </div>
-          <BagIcon className="shrink-0 size-16 text-accent-2" />
+          <BagIcon className="shrink-0 size-20 text-accent-2" />
         </div>
       </div>
 
