@@ -10,7 +10,7 @@ export default function BrandFooterBar() {
         href="/login"
         className="rounded-full bg-text border border-white/20 px-4 py-2 text-sm font-semibold text-white whitespace-nowrap"
       >
-        Show Your Art
+        Muestra tu arte
       </Link>
     </div>
   );

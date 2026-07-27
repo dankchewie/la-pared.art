@@ -48,12 +48,12 @@ export default function ContactForm({
           onClick={onClose}
           className="fixed top-4 right-4 text-text-dim hover:text-text font-utility text-sm"
         >
-          close
+          cerrar
         </button>
 
         {sent ? (
           <p className="text-text font-utility text-sm text-center max-w-xs">
-            Sent. Thank you.
+            Enviado. Gracias.
           </p>
         ) : (
           <form
@@ -62,14 +62,14 @@ export default function ContactForm({
           >
             <input
               type="email"
-              placeholder="Your email"
+              placeholder="Tu correo electrónico"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="bg-surface border border-border px-3 py-2 text-text placeholder:text-text-dim font-utility text-sm"
             />
             <textarea
-              placeholder="Text here"
+              placeholder="Escribe aquí"
               value={body}
               onChange={(e) => setBody(e.target.value)}
               required
@@ -84,7 +84,7 @@ export default function ContactForm({
               disabled={sending}
               className="bg-accent text-bg font-utility uppercase text-sm tracking-wide py-3 disabled:opacity-50"
             >
-              {sending ? "Sending…" : "Send"}
+              {sending ? "Enviando…" : "Enviar"}
             </button>
           </form>
         )}

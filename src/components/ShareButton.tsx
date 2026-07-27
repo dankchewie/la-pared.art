@@ -26,13 +26,13 @@ export default function ShareButton({ title }: { title: string }) {
   return (
     <button
       onClick={handleShare}
-      aria-label="Share this artwork"
+      aria-label="Compartir esta obra"
       className="size-6 text-text"
     >
       <ShareIcon className="size-6" />
       {copied && (
         <span className="sr-only" role="status">
-          Link copied
+          Enlace copiado
         </span>
       )}
     </button>

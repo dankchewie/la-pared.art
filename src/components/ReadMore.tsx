@@ -23,7 +23,7 @@ export default function ReadMore({
         onClick={() => setExpanded((v) => !v)}
         className="mt-1 text-xs font-semibold text-link hover:opacity-80"
       >
-        {expanded ? "Read less" : "Read more"}
+        {expanded ? "Leer menos" : "Leer más"}
       </button>
     </div>
   );

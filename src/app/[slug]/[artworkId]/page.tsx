@@ -35,15 +35,15 @@ export default async function ArtworkPage({
   }
 
   const details = [
-    artwork.medium && { label: "Medium", value: artwork.medium },
-    artwork.size && { label: "Size", value: artwork.size },
-    artwork.year && { label: "Year", value: artwork.year },
+    artwork.medium && { label: "Técnica", value: artwork.medium },
+    artwork.size && { label: "Tamaño", value: artwork.size },
+    artwork.year && { label: "Año", value: artwork.year },
   ].filter((row): row is { label: string; value: string } => Boolean(row));
 
   return (
     <div className="flex-1 flex flex-col">
       <div className="flex items-center justify-between px-4 py-2">
-        <Link href={`/${slug}`} aria-label="Back to wall" className="text-text">
+        <Link href={`/${slug}`} aria-label="Volver al muro" className="text-text">
           <ChevronLeftIcon className="size-6" />
         </Link>
         <ShareButton title={artwork.title} />
@@ -64,10 +64,10 @@ export default async function ArtworkPage({
           {artwork.for_sale && (
             <div className="flex gap-2 items-center">
               <p className="font-medium text-xl text-success">
-                Available for sale
+                Disponible para la venta
               </p>
               <p className="text-text-secondary">
-                {artwork.price || "Inquire for price"}
+                {artwork.price || "Consultar precio"}
               </p>
             </div>
           )}
@@ -75,7 +75,7 @@ export default async function ArtworkPage({
 
         {artwork.statement && (
           <div className="border border-border rounded px-4 py-5 w-full">
-            <h2 className="font-medium text-xl text-text mb-2">About the work</h2>
+            <h2 className="font-medium text-xl text-text mb-2">Sobre la obra</h2>
             <ReadMore text={artwork.statement} />
           </div>
         )}
@@ -100,7 +100,7 @@ export default async function ArtworkPage({
           href={`/${slug}/${artwork.id}/inquire`}
           className="w-full flex items-center justify-center rounded-full bg-text px-4 py-3 text-white font-semibold"
         >
-          Inquire
+          Consultar
         </Link>
       </div>
     </div>

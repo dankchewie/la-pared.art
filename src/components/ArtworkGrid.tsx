@@ -23,12 +23,12 @@ export default function ArtworkGrid({
       </a>
 
       <div className="flex items-center px-4 pb-2">
-        <h2 className="font-medium text-xl text-text">Artworks</h2>
+        <h2 className="font-medium text-xl text-text">Archivo de obras</h2>
       </div>
 
       {artworks.length === 0 ? (
         <p className="text-text-dim text-sm py-16 text-center w-full">
-          Nothing here yet.
+          Todavía no hay nada aquí.
         </p>
       ) : (
         <div className="masonry w-full px-3">

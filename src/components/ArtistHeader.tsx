@@ -65,7 +65,7 @@ export default function ArtistHeader({
           className="w-full flex items-center justify-center gap-1 rounded-full bg-text border border-border px-4 py-3 text-white font-semibold"
         >
           <SendIcon className="size-6" />
-          Message
+          Mensaje
         </button>
         {youtubeLink && (
           <a
@@ -93,7 +93,7 @@ export default function ArtistHeader({
 
       {bio && (
         <div className="flex flex-col items-start px-4 py-5">
-          <h2 className="font-medium text-xl text-text mb-2">About the artist</h2>
+          <h2 className="font-medium text-xl text-text mb-2">Sobre el artista</h2>
           <ReadMore text={bio} className="w-full" />
         </div>
       )}

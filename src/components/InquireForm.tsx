@@ -47,7 +47,7 @@ export default function InquireForm({
   if (sent) {
     return (
       <p className="text-text text-sm text-center py-12 w-full">
-        Sent. The artist will be in touch.
+        Enviado. El artista se pondrá en contacto contigo.
       </p>
     );
   }
@@ -55,10 +55,10 @@ export default function InquireForm({
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
       <div className="flex flex-col gap-2 w-full">
-        <label className="font-semibold text-text">Full Name</label>
+        <label className="font-semibold text-text">Nombre completo</label>
         <input
           type="text"
-          placeholder="First and last name"
+          placeholder="Nombre y apellido"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -67,10 +67,10 @@ export default function InquireForm({
       </div>
 
       <div className="flex flex-col gap-2 w-full">
-        <label className="font-semibold text-text">Email Address</label>
+        <label className="font-semibold text-text">Correo electrónico</label>
         <input
           type="email"
-          placeholder="name@example.com"
+          placeholder="nombre@ejemplo.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -79,10 +79,10 @@ export default function InquireForm({
       </div>
 
       <div className="flex flex-col gap-2 w-full">
-        <label className="font-semibold text-text">Phone Number (Optional)</label>
+        <label className="font-semibold text-text">Número de teléfono (opcional)</label>
         <input
           type="tel"
-          placeholder="+1 (555) 000-0000"
+          placeholder="+502 0000 0000"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           className="bg-surface border border-border rounded-xl px-4 py-3 text-text placeholder:text-text-dim text-sm"
@@ -90,9 +90,9 @@ export default function InquireForm({
       </div>
 
       <div className="flex flex-col gap-2 w-full">
-        <label className="font-semibold text-text">Additional Message</label>
+        <label className="font-semibold text-text">Mensaje adicional</label>
         <textarea
-          placeholder="I am interested in this artwork and would like more details..."
+          placeholder="Me interesa esta obra y me gustaría más información..."
           value={body}
           onChange={(e) => setBody(e.target.value)}
           required
@@ -104,7 +104,7 @@ export default function InquireForm({
       <div className="flex gap-2 items-start">
         <InfoIcon className="size-4 text-text-dim shrink-0 mt-0.5" />
         <p className="text-text-dim text-sm">
-          Your inquiry will be sent securely to the artist themselves.
+          Tu consulta se enviará de forma segura directamente al artista.
         </p>
       </div>
 
@@ -115,7 +115,7 @@ export default function InquireForm({
         disabled={sending}
         className="w-full rounded-full bg-text px-4 py-3 text-white font-semibold disabled:opacity-50"
       >
-        {sending ? "Sending…" : "Send Inquiry"}
+        {sending ? "Enviando…" : "Enviar consulta"}
       </button>
     </form>
   );

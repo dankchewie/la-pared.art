@@ -36,10 +36,10 @@ export default async function InquirePage({
   return (
     <div className="flex-1 flex flex-col">
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
-        <Link href={`/${slug}/${artwork.id}`} aria-label="Back" className="text-text">
+        <Link href={`/${slug}/${artwork.id}`} aria-label="Volver" className="text-text">
           <ChevronLeftIcon className="size-6" />
         </Link>
-        <p className="font-medium text-xl text-text">Inquire</p>
+        <p className="font-medium text-xl text-text">Consultar</p>
         <div className="size-6" />
       </div>
 
