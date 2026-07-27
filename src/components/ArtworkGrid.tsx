@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Tables } from "@/lib/database.types";
 
 type Artwork = Tables<"artworks">;
-type Filter = "all" | "for_sale" | "selected";
+type Filter = "all" | "selected";
 
 export default function ArtworkGrid({
   slug,
@@ -16,20 +16,27 @@ export default function ArtworkGrid({
 }) {
   const [filter, setFilter] = useState<Filter>("all");
 
-  const forSale = useMemo(() => artworks.filter((a) => a.for_sale), [artworks]);
   const selected = useMemo(() => artworks.filter((a) => a.is_selected), [artworks]);
 
-  const visible =
-    filter === "for_sale" ? forSale : filter === "selected" ? selected : artworks;
+  const visible = filter === "selected" ? selected : artworks;
 
   const tabs: { key: Filter; label: string; count: number }[] = [
     { key: "all", label: "All", count: artworks.length },
-    { key: "for_sale", label: "For Sale", count: forSale.length },
     { key: "selected", label: "Selected", count: selected.length },
   ];
 
   return (
     <>
+      <a
+        href="https://app.recurrente.com/s/kaiateycrea"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-4 mb-3 flex items-center justify-between rounded-xl bg-accent/10 border border-accent/30 px-4 py-3 text-sm font-semibold text-accent"
+      >
+        Tienda
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+
       <div className="flex items-center px-4 pb-2">
         <h2 className="font-medium text-xl text-text">Artworks</h2>
       </div>
